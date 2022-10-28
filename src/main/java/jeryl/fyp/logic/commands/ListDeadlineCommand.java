@@ -49,4 +49,10 @@ public class ListDeadlineCommand extends Command {
         return new CommandResult(String.format(MESSAGE_LIST_DEADLINE_SUCCESS, studentToListDeadline));
     }
 
+    @Override
+    public boolean equals(Object other) {
+        return other == this // short circuit if same object
+                || (other instanceof ListDeadlineCommand // instanceof handles nulls
+                && studentId.equals(((ListDeadlineCommand) other).studentId)); // state check
+    }
 }
